@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basis Vectors Capital — Homepage Redesign Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --contrast:    #222222;
+  --contrast-2:  #575760;
+  --contrast-3:  #b2b2be;
+  --accent:      #1e73be;
+  --accent-hover:#1558a0;
+  --base:        #f0f0f0;
+  --base-2:      #f7f8f9;
+  --base-3:      #ffffff;
+  --topbar-bg:   #1a1a2e;
+  --border:      #e4e4ec;
+  --font:        'Inter', sans-serif;
+  --max-w:       1250px;
+  --radius:      8px;
+  --radius-pill: 9999px;
+  --shadow-sm:   0 1px 3px rgba(0,0,0,.08);
+  --shadow-md:   0 4px 16px rgba(0,0,0,.10);
+  --shadow-lg:   0 8px 32px rgba(0,0,0,.13);
+  --transition:  all 0.22s ease;
+  --gold:        #c49b3c;
+  --gold-light:  #e8c47a;
+  --gold-bg:     rgba(196,155,60,0.12);
+  --accent-light:rgba(30,115,190,0.1);
+  --green:       #1a9c57;
+  --green-light: rgba(26,156,87,0.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--base-3);color:var(--contrast);font-size:17px;line-height:1.65;overflow-x:hidden}
+
+/* ANNO STRIP */
+.anno-strip{background:var(--topbar-bg);color:rgba(255,255,255,0.65);font-size:12px;font-weight:500;letter-spacing:.05em;text-align:center;padding:9px 20px;position:sticky;top:0;z-index:200}
+.anno-strip span{color:var(--gold-light)}
+
+/* NAV */
+nav{background:var(--base-3);border-bottom:1px solid var(--border);position:sticky;top:37px;z-index:100}
+.nav-inner{max-width:var(--max-w);margin:0 auto;padding:0 40px;height:68px;display:flex;align-items:center;gap:32px}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto}
+.nav-logo img{height:30px}
+.nav-logo-text{font-size:16px;font-weight:700;color:var(--contrast);letter-spacing:-0.02em}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a{font-size:14px;font-weight:500;color:var(--contrast-2);text-decoration:none;transition:var(--transition)}
+.nav-links a:hover{color:var(--contrast)}
+.nav-cta{background:var(--accent);color:#fff;font-size:13px;font-weight:600;padding:9px 20px;border-radius:var(--radius);text-decoration:none;transition:var(--transition);white-space:nowrap}
+.nav-cta:hover{background:var(--accent-hover)}
+
+/* SHARED */
+.section{padding:88px 40px}
+.section-inner{max-width:var(--max-w);margin:0 auto}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.eyebrow::before{content:'';display:block;width:20px;height:2px;background:var(--accent);border-radius:2px}
+.eyebrow-gold{color:var(--gold-light)}
+.eyebrow-gold::before{background:var(--gold)}
+.section-h2{font-size:44px;font-weight:800;line-height:1.1;letter-spacing:-0.025em;color:var(--contrast);margin-bottom:16px}
+.section-h2 em{font-style:normal;color:var(--accent)}
+.section-h2-light{color:#fff}
+.section-h2-light em{color:var(--gold-light)}
+.section-sub{font-size:18px;font-weight:400;color:var(--contrast-2);line-height:1.7;max-width:580px;margin-bottom:52px}
+.section-sub-light{color:rgba(255,255,255,0.55)}
+.anno-pill{display:inline-flex;align-items:center;gap:5px;background:#fff8e1;border:1px solid #f0c040;color:#7a5800;border-radius:4px;font-size:11px;font-weight:600;padding:3px 9px;margin-bottom:10px;letter-spacing:.04em}
+.anno-pill::before{content:'✏'}
+.anno-pill-dark{background:rgba(255,255,255,0.08);border-color:rgba(196,155,60,0.4);color:rgba(232,196,122,0.9)}
+
+/* HERO */
+.hero{background:var(--topbar-bg);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 50%,rgba(30,115,190,0.2) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:var(--max-w);margin:0 auto;padding:96px 40px 88px;display:grid;grid-template-columns:1fr 420px;gap:72px;align-items:center}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);margin-bottom:20px}
+.hero-eyebrow::before{content:'';display:block;width:20px;height:2px;background:var(--gold);border-radius:2px}
+.hero-h1{font-size:clamp(46px,5.5vw,66px);font-weight:800;line-height:1.05;letter-spacing:-0.03em;color:#fff;margin-bottom:24px}
+.hero-h1 em{font-style:normal;color:var(--gold-light)}
+.hero-sub{font-size:19px;font-weight:400;color:rgba(255,255,255,0.62);line-height:1.72;max-width:520px;margin-bottom:44px}
+.hero-sub strong{font-weight:600;color:rgba(255,255,255,0.9)}
+.hero-doors{display:flex;flex-direction:column;gap:12px}
+.door{display:flex;align-items:center;gap:16px;padding:18px 22px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius);text-decoration:none;transition:var(--transition);cursor:pointer}
+.door:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.25);transform:translateX(4px)}
+.door-icon{width:40px;height:40px;flex-shrink:0;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.door-icon.blue{background:var(--accent-light)}
+.door-icon.gold{background:var(--gold-bg)}
+.door-text{flex:1}
+.door-label{font-size:15px;font-weight:600;color:#fff;margin-bottom:2px}
+.door-desc{font-size:13px;font-weight:400;color:rgba(255,255,255,0.48)}
+.door-arrow{font-size:18px;color:rgba(255,255,255,0.38);transition:var(--transition)}
+.door:hover .door-arrow{transform:translateX(4px);color:rgba(255,255,255,0.8)}
+.hero-panel{display:flex;flex-direction:column;gap:14px}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr 1fr;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);overflow:hidden}
+.hero-stat{padding:20px 16px;text-align:center;border-right:1px solid rgba(255,255,255,0.07)}
+.hero-stat:last-child{border-right:none}
+.hero-stat-val{font-size:28px;font-weight:800;color:var(--gold-light);line-height:1;margin-bottom:4px;letter-spacing:-0.02em}
+.hero-stat-lbl{font-size:11px;font-weight:500;color:rgba(255,255,255,0.4);letter-spacing:.04em;text-transform:uppercase}
+.hero-thesis{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-left:3px solid var(--gold);border-radius:var(--radius);padding:20px 22px}
+.hero-thesis-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-light);margin-bottom:8px}
+.hero-thesis-text{font-size:14px;font-weight:400;color:rgba(255,255,255,0.58);line-height:1.68}
+.hero-thesis-text strong{font-weight:600;color:rgba(255,255,255,0.85)}
+.hero-port-strip{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:16px 20px}
+.hero-port-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:10px}
+.hero-port-logos{display:flex;gap:8px;flex-wrap:wrap}
+.port-pill{font-size:12px;font-weight:500;color:rgba(255,255,255,0.65);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);padding:4px 10px;border-radius:var(--radius-pill)}
+
+/* WHO WE ARE */
+.who-section{background:var(--topbar-bg);padding:88px 40px}
+.who-inner{max-width:var(--max-w);margin:0 auto}
+.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;margin-bottom:48px}
+.who-body{font-size:18px;font-weight:400;color:rgba(255,255,255,0.58);line-height:1.72;margin-bottom:16px}
+.who-right{display:flex;flex-direction:column;gap:14px}
+.who-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:22px 24px;transition:var(--transition)}
+.who-card:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.2)}
+.who-card-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-light);margin-bottom:7px}
+.who-card-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:5px}
+.who-card-body{font-size:14px;font-weight:400;color:rgba(255,255,255,0.5);line-height:1.65}
+.who-pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;border-radius:var(--radius);overflow:hidden}
+.who-pillar{background:rgba(255,255,255,0.04);padding:22px 20px;border:1px solid rgba(255,255,255,0.06)}
+.who-pillar-val{font-size:20px;font-weight:800;color:var(--gold-light);margin-bottom:4px;letter-spacing:-0.01em}
+.who-pillar-lbl{font-size:13px;font-weight:400;color:rgba(255,255,255,0.38);line-height:1.5}
+
+/* TWO MODELS */
+.models-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.model-card{background:var(--base-3);border:1px solid var(--border);border-radius:var(--radius);padding:32px 30px;transition:var(--transition);position:relative;overflow:hidden}
+.model-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.model-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent)}
+.model-card.gold-top::before{background:var(--gold)}
+.model-num{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.model-num.gold-num{color:var(--gold)}
+.model-title{font-size:22px;font-weight:700;color:var(--contrast);margin-bottom:8px;letter-spacing:-0.01em}
+.model-body{font-size:16px;font-weight:400;color:var(--contrast-2);line-height:1.7;margin-bottom:20px}
+.model-tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-size:12px;font-weight:500;background:var(--accent-light);color:var(--accent);padding:4px 10px;border-radius:var(--radius-pill)}
+.tag.gold{background:var(--gold-bg);color:var(--gold)}
+
+/* FRAMEWORK */
+.framework-section{background:var(--topbar-bg);padding:88px 40px}
+.fw-inner{max-width:var(--max-w);margin:0 auto}
+.fw-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;border-radius:var(--radius);overflow:hidden;margin-bottom:2px}
+.fw-step{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);padding:30px 26px;transition:var(--transition);cursor:pointer}
+.fw-step:hover{background:rgba(255,255,255,0.08)}
+.fw-step-num{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-light);display:flex;align-items:center;gap:6px;margin-bottom:12px}
+.fw-step-num::before{content:'';display:block;width:14px;height:1px;background:var(--gold)}
+.fw-step-title{font-size:30px;font-weight:800;color:#fff;line-height:1.05;letter-spacing:-0.02em;margin-bottom:5px}
+.fw-step-verb{font-size:12px;font-weight:500;color:rgba(255,255,255,0.32);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
+.fw-step-body{font-size:14px;font-weight:400;color:rgba(255,255,255,0.52);line-height:1.65;margin-bottom:20px}
+.fw-step-output{font-size:12px;font-weight:500;color:var(--gold-light);font-family:'Courier New',monospace;letter-spacing:.02em;padding-top:14px;border-top:1px solid rgba(255,255,255,0.1)}
+.fw-milestone{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:22px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:2px}
+.fw-ms-item{text-align:center}
+.fw-ms-val{font-size:26px;font-weight:800;color:var(--gold-light);line-height:1;letter-spacing:-0.02em;margin-bottom:3px}
+.fw-ms-lbl{font-size:11px;font-weight:500;color:rgba(255,255,255,0.38);text-transform:uppercase;letter-spacing:.06em}
+.fw-arrow{font-size:20px;color:rgba(255,255,255,0.18)}
+
+/* AUDIENCE */
+.audience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.aud-card{background:var(--base-3);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:var(--transition)}
+.aud-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.aud-header{padding:22px 24px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px}
+.aud-badge{width:32px;height:32px;background:var(--topbar-bg);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--gold-light);font-family:'Courier New',monospace;flex-shrink:0}
+.aud-title{font-size:16px;font-weight:700;color:var(--contrast)}
+.aud-body{padding:18px 24px;font-size:15px;font-weight:400;color:var(--contrast-2);line-height:1.72}
+.aud-cta{display:block;padding:14px 24px;background:var(--base-2);font-size:14px;font-weight:600;color:var(--accent);text-decoration:none;border-top:1px solid var(--border);transition:var(--transition)}
+.aud-cta:hover{background:var(--accent-light)}
+
+/* PCTA */
+.pcta-block{background:var(--topbar-bg);border-radius:var(--radius);padding:52px 48px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:40px;margin-top:48px}
+.pcta-eyebrow{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-light);margin-bottom:12px}
+.pcta-h{font-size:30px;font-weight:800;color:#fff;line-height:1.2;letter-spacing:-0.02em;margin-bottom:10px}
+.pcta-h em{font-style:normal;color:var(--gold-light)}
+.pcta-sub{font-size:16px;font-weight:400;color:rgba(255,255,255,0.52);line-height:1.68;max-width:520px}
+.pcta-btns{display:flex;flex-direction:column;gap:10px;min-width:210px}
+.btn-primary{display:block;text-align:center;padding:14px 26px;border-radius:var(--radius);background:var(--accent);color:#fff;font-size:14px;font-weight:700;text-decoration:none;transition:var(--transition)}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-outline{display:block;text-align:center;padding:13px 26px;border-radius:var(--radius);background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.7);font-size:14px;font-weight:600;text-decoration:none;transition:var(--transition)}
+.btn-outline:hover{border-color:rgba(255,255,255,0.5);color:#fff}
+
+/* PORTFOLIO CAROUSEL */
+.portfolio-section{background:var(--base-2);padding:88px 0}
+.portfolio-inner{max-width:var(--max-w);margin:0 auto;padding:0 40px}
+.carousel-wrap{position:relative;margin-top:48px}
+.carousel-track-outer{overflow:hidden;border-radius:var(--radius)}
+.carousel-track{display:flex;transition:transform 0.45s cubic-bezier(0.4,0,0.2,1)}
+.carousel-slide{min-width:100%;display:grid;grid-template-columns:1fr 1fr;background:var(--base-3);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.slide-left{padding:48px 48px;display:flex;flex-direction:column;justify-content:space-between}
+.slide-sector{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.slide-name{font-size:40px;font-weight:800;color:var(--contrast);letter-spacing:-0.025em;margin-bottom:10px;line-height:1.05}
+.slide-desc{font-size:17px;font-weight:400;color:var(--contrast-2);line-height:1.7;margin-bottom:36px}
+.slide-metrics{display:flex;gap:32px;flex-wrap:wrap}
+.slide-metric-val{font-size:30px;font-weight:800;color:var(--green);letter-spacing:-0.02em;line-height:1}
+.slide-metric-lbl{font-size:12px;font-weight:500;color:var(--contrast-3);text-transform:uppercase;letter-spacing:.06em;margin-top:3px}
+.slide-right{background:var(--topbar-bg);padding:48px 40px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.slide-right-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:2px}
+.slide-engine{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:14px 18px}
+.slide-engine-title{font-size:13px;font-weight:600;color:var(--gold-light);margin-bottom:4px}
+.slide-engine-body{font-size:13px;font-weight:400;color:rgba(255,255,255,0.48);line-height:1.58}
+.carousel-controls{display:flex;align-items:center;justify-content:space-between;margin-top:24px}
+.carousel-dots{display:flex;gap:8px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:var(--transition);border:none;padding:0}
+.dot.active{background:var(--accent);width:24px;border-radius:var(--radius-pill)}
+.carousel-btns{display:flex;gap:10px}
+.carr-btn{width:40px;height:40px;border-radius:50%;background:var(--base-3);border:1px solid var(--border);font-size:18px;color:var(--contrast-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:var(--transition)}
+.carr-btn:hover{background:var(--topbar-bg);color:#fff;border-color:var(--topbar-bg)}
+
+/* OUTCOMES */
+.outcomes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.outcome-card{background:var(--base-3);border:1px solid var(--border);border-radius:var(--radius);padding:32px 28px;transition:var(--transition)}
+.outcome-card:hover{box-shadow:var(--shadow-md)}
+.outcome-val{font-size:56px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-0.03em;margin-bottom:8px}
+.outcome-label{font-size:17px;font-weight:700;color:var(--contrast);margin-bottom:6px}
+.outcome-sub{font-size:15px;font-weight:400;color:var(--contrast-2);line-height:1.6}
+
+/* INSIGHTS */
+.insights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.insight-card{background:var(--base-3);border:1px solid var(--border);border-radius:var(--radius);padding:26px 24px;transition:var(--transition);text-decoration:none;display:flex;flex-direction:column}
+.insight-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.insight-cat{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.insight-title{font-size:17px;font-weight:700;color:var(--contrast);line-height:1.35;margin-bottom:10px;flex:1}
+.insight-body{font-size:14px;font-weight:400;color:var(--contrast-2);line-height:1.65;margin-bottom:16px}
+.insight-link{font-size:13px;font-weight:600;color:var(--accent)}
+
+/* SITEMAP */
+.sitemap-section{background:var(--base-2);border-top:1px solid var(--border);padding:60px 40px}
+.sitemap-inner{max-width:var(--max-w);margin:0 auto}
+.sitemap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.sitemap-col-title{font-size:14px;font-weight:700;color:var(--accent);padding-bottom:10px;border-bottom:1px solid var(--border);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.new-badge{font-size:9px;font-weight:700;background:var(--accent);color:#fff;padding:2px 6px;border-radius:3px;letter-spacing:.06em}
+.sitemap-links{list-style:none;display:flex;flex-direction:column;gap:7px}
+.sitemap-links li a{font-size:13px;font-weight:400;color:var(--contrast-2);text-decoration:none;transition:var(--transition)}
+.sitemap-links li a:hover{color:var(--accent)}
+
+/* LEGEND */
+.legend-box{background:#fffbeb;border:1px solid #e8c840;border-radius:var(--radius);padding:28px 32px;margin:40px auto;max-width:var(--max-w)}
+.legend-title{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7a5800;margin-bottom:16px}
+.legend-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.legend-item{font-size:13px;color:#7a5800;line-height:1.55;display:flex;gap:6px;align-items:baseline}
+.legend-item::before{content:'→';font-weight:700;flex-shrink:0}
+
+/* FOOTER */
+footer{background:var(--topbar-bg);border-top:1px solid rgba(255,255,255,0.08);padding:48px 40px 32px}
+.footer-inner{max-width:var(--max-w);margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
+.footer-brand-desc{font-size:14px;font-weight:400;color:rgba(255,255,255,0.38);line-height:1.7;margin-top:12px}
+.footer-col-title{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,0.32);margin-bottom:14px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-links a{font-size:13px;font-weight:400;color:rgba(255,255,255,0.48);text-decoration:none;transition:var(--transition)}
+.footer-links a:hover{color:rgba(255,255,255,0.9)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08)}
+.footer-legal{font-size:12px;color:rgba(255,255,255,0.28)}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .hero-inner,.who-grid,.models-grid,.fw-steps,.audience-grid,.outcomes-grid,.insights-grid,.sitemap-grid,.footer-top,.pcta-block{grid-template-columns:1fr}
+  .section,.who-section,.framework-section,.portfolio-section{padding:60px 24px}
+  .carousel-slide{grid-template-columns:1fr}
+  .section-h2{font-size:32px}
+  .hero-h1{font-size:38px}
+  .who-pillars{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.hero-inner>*{animation:fadeUp 0.55s ease both}
+.hero-inner>*:nth-child(1){animation-delay:.05s}
+.hero-inner>*:nth-child(2){animation-delay:.18s}
+</style>
+</head>
+<body>
+
+<div class="anno-strip">✏ REDESIGN MOCKUP v2 — Basis Vectors Capital · <span>Exact brand system · Larger text · PE-grade feel · Portfolio carousel</span></div>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">
+      <img src="https://bvcweb.netlify.app/images/bvc-logo.png" alt="BVC" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="nav-logo-text" style="display:none">Basis Vectors Capital</span>
+    </a>
+    <div class="nav-links">
+      <a href="#">Portfolio</a>
+      <a href="#">Framework</a>
+      <a href="#">For PE &amp; VC Funds</a>
+      <a href="#">Insights</a>
+      <a href="#">About</a>
+    </div>
+    <a class="nav-cta" href="#">Explore a Partnership →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="anno-pill">CHANGE: Fund identity first — not framework</div>
+      <div class="hero-eyebrow">Lower middle market · B2B SaaS · PE buyout</div>
+      <h1 class="hero-h1">The <em>AI-native</em><br>SaaS buyout firm.</h1>
+      <p class="hero-sub">Most B2B SaaS companies are wrestling with the same challenges: slowing growth, rising costs, pricing pressure. <strong>AI changes all of that</strong> — but only if you know how to deploy it. We've built a native AI toolkit that transforms SaaS businesses from the inside: revitalising growth, rebuilding margins, and building lasting product defensibility.</p>
+      <div class="hero-doors">
+        <div class="anno-pill">CHANGE: Two clear front doors from hero</div>
+        <a class="door" href="#">
+          <div class="door-icon blue">🏦</div>
+          <div class="door-text">
+            <div class="door-label">PE &amp; VC fund partners</div>
+            <div class="door-desc">Transform your SaaS portfolio — equity or fee-based</div>
+          </div>
+          <div class="door-arrow">→</div>
+        </a>
+        <a class="door" href="#">
+          <div class="door-icon gold">🤝</div>
+          <div class="door-text">
+            <div class="door-label">Founders selling their SaaS business</div>
+            <div class="door-desc">We acquire B2B SaaS at $5–30M ARR</div>
+          </div>
+          <div class="door-arrow">→</div>
+        </a>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-val">90d</div><div class="hero-stat-lbl">First EBITDA lift</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">5</div><div class="hero-stat-lbl">Portfolio cos</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">110%+</div><div class="hero-stat-lbl">NRR target</div></div>
+      </div>
+      <div class="hero-thesis">
+        <div class="hero-thesis-label">Our thesis</div>
+        <div class="hero-thesis-text">Post-AI, many SaaS companies struggle to scale, control costs, and defend pricing. The tools exist — but most operators don't have the playbook. BVC acquires <strong>$5–30M ARR B2B SaaS businesses</strong> and deploys a proprietary AI operating system to revitalise growth, rebuild margins, and build compounding product defensibility.</div>
+      </div>
+      <div class="hero-port-strip">
+        <div class="hero-port-label">Current portfolio</div>
+        <div class="hero-port-logos">
+          <span class="port-pill">VorroAI</span>
+          <span class="port-pill">Cadient</span>
+          <span class="port-pill">CV3</span>
+          <span class="port-pill">Infinita Lab</span>
+          <span class="port-pill">Agrim AI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE ARE -->
+<section class="who-section">
+  <div class="who-inner">
+    <div class="anno-pill anno-pill-dark">NEW SECTION: Founder-operator identity — the differentiator</div>
+    <div class="who-grid">
+      <div>
+        <div class="eyebrow eyebrow-gold">Who we are</div>
+        <h2 class="section-h2 section-h2-light" style="margin-bottom:20px">We've been in<br><em>the founder's seat.</em></h2>
+        <p class="who-body">The BVC team is not a typical PE fund. We're ex-tech founders with successful exits, operators who've scaled SaaS companies through inflection points, and dealmakers with banking and consulting rigour — all in one room.</p>
+        <p class="who-body">That combination is rare. It means we underwrite differently, operate differently, and create alpha that pure financial engineers — or pure consultants — simply can't replicate. Our edge isn't leverage. It's rapid value creation through operators who've already done it on their own companies.</p>
+      </div>
+      <div class="who-right">
+        <div class="who-card">
+          <div class="who-card-label">From the founder seat</div>
+          <div class="who-card-title">We've lived the inflection points</div>
+          <div class="who-card-body">GTM pivots, pricing crises, team rebuilds. We know which levers actually move the needle under pressure — and which ones look good in a deck but change nothing.</div>
+        </div>
+        <div class="who-card">
+          <div class="who-card-label">From finance &amp; consulting</div>
+          <div class="who-card-title">Deal discipline meets operating rigour</div>
+          <div class="who-card-body">Rigorous deal structuring, clean governance, investor-grade reporting, exit narrative construction — the discipline to build a business that not only operates well but passes diligence.</div>
+        </div>
+        <div class="who-card">
+          <div class="who-card-label">The edge this creates</div>
+          <div class="who-card-title">Not LBOs. Rapid value creation.</div>
+          <div class="who-card-body">Our alpha is systematic AI transformation of revenue, cost, and product — deployed by people who've already done it on their own companies. A fundamentally different risk-return profile.</div>
+        </div>
+      </div>
+    </div>
+    <div class="who-pillars">
+      <div class="who-pillar"><div class="who-pillar-val">Founders</div><div class="who-pillar-lbl">with successful SaaS exits on the team</div></div>
+      <div class="who-pillar"><div class="who-pillar-val">Operators</div><div class="who-pillar-lbl">who've scaled SaaS through product-market fit</div></div>
+      <div class="who-pillar"><div class="who-pillar-val">Dealmakers</div><div class="who-pillar-lbl">with PE and investment banking backgrounds</div></div>
+      <div class="who-pillar"><div class="who-pillar-val">AI-native</div><div class="who-pillar-lbl">engineers building the transformation tooling</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TWO MODELS -->
+<section class="section" style="background:var(--base-2)">
+  <div class="section-inner">
+    <div class="anno-pill">CHANGE: Two models clearly framed — fund is primary identity</div>
+    <div class="eyebrow">What we do</div>
+    <h2 class="section-h2">One operating system.<br><em>Two ways to deploy it.</em></h2>
+    <p class="section-sub">The BVC AI operating system is the common asset. We deploy it inside our own portfolio — and alongside PE/VC fund partners who want to transform theirs.</p>
+    <div class="models-grid">
+      <div class="model-card">
+        <div class="model-num">Model 01 — The Fund</div>
+        <div class="model-title">We buy, own &amp; transform</div>
+        <div class="model-body">BVC acquires B2B SaaS businesses at $5–30M ARR and applies our AI transformation operating system end-to-end — from 90-day EBITDA moves to exit-ready governance. We own the risk and the upside.</div>
+        <div class="model-tags"><span class="tag">Acquisition</span><span class="tag">Full transformation</span><span class="tag">Control stake</span></div>
+      </div>
+      <div class="model-card gold-top">
+        <div class="model-num gold-num">Model 02 — Fund Partnership</div>
+        <div class="model-title">We co-deploy on your portfolio</div>
+        <div class="model-body">For PE and VC funds with SaaS portfolio companies, we embed the BVC AI operating system to drive EBITDA expansion. Equity co-invest, outcome-linked fees, or hybrid — sized to the mandate.</div>
+        <div class="model-tags"><span class="tag gold">PE / VC partners</span><span class="tag gold">Equity or fee</span><span class="tag gold">Portfolio-wide</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FRAMEWORK -->
+<section class="framework-section">
+  <div class="fw-inner">
+    <div class="anno-pill anno-pill-dark">CHANGE: Framework as depth section — layer names dominant, verbs secondary</div>
+    <div class="eyebrow eyebrow-gold">The BVC AI operating system</div>
+    <h2 class="section-h2 section-h2-light" style="margin-bottom:14px">How we turn struggling SaaS<br>into <em>AI-native platforms.</em></h2>
+    <p class="section-sub section-sub-light">Four layers. One sequential dependency. Each layer's output is the precondition for the next.</p>
+    <div class="fw-steps">
+      <div class="fw-step">
+        <div class="fw-step-num">L1</div>
+        <div class="fw-step-title">Benchmark</div>
+        <div class="fw-step-verb">Diagnose</div>
+        <div class="fw-step-body">Six-dimension diagnostic maps value leakage across GTM, cost structure, NRR, AI adoption, data maturity, and product-market fit — before any capital moves.</div>
+        <div class="fw-step-output">Output: prioritised intervention agenda</div>
+      </div>
+      <div class="fw-step">
+        <div class="fw-step-num">L2</div>
+        <div class="fw-step-title">Rebuild</div>
+        <div class="fw-step-verb">Execute</div>
+        <div class="fw-step-body">Revenue, Cost, and Product engines deployed simultaneously. AI-assisted GTM, offshore leverage, and AI-native product workflows — running in parallel, not sequentially.</div>
+        <div class="fw-step-output">Output: EBITDA expansion in 90 days</div>
+      </div>
+      <div class="fw-step">
+        <div class="fw-step-num">L3</div>
+        <div class="fw-step-title">Compound</div>
+        <div class="fw-step-verb">Defend</div>
+        <div class="fw-step-body">Proprietary data assets and AI-native workflows build compounding defensibility — NRR above 110%, deepening switching costs, and a buyer narrative built well before process.</div>
+        <div class="fw-step-output">Output: NRR &gt;110%, exit narrative built</div>
+      </div>
+      <div class="fw-step">
+        <div class="fw-step-num">L4</div>
+        <div class="fw-step-title">Exit Readiness</div>
+        <div class="fw-step-verb">Exit</div>
+        <div class="fw-step-body">Investor-grade data room, auditable KPI dashboards, and clean EBITDA governance — built 12–18 months before process so diligence accelerates rather than derails.</div>
+        <div class="fw-step-output">Output: diligence-ready, narrative-tight</div>
+      </div>
+    </div>
+    <div class="fw-milestone">
+      <div class="fw-ms-item"><div class="fw-ms-val">90 days</div><div class="fw-ms-lbl">First EBITDA moves</div></div>
+      <div class="fw-arrow">→</div>
+      <div class="fw-ms-item"><div class="fw-ms-val">38%</div><div class="fw-ms-lbl">Typical COGS reduction</div></div>
+      <div class="fw-arrow">→</div>
+      <div class="fw-ms-item"><div class="fw-ms-val">110%+</div><div class="fw-ms-lbl">NRR target</div></div>
+      <div class="fw-arrow">→</div>
+      <div class="fw-ms-item"><div class="fw-ms-val">AI-native</div><div class="fw-ms-lbl">Platform defensibility</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section class="section">
+  <div class="section-inner">
+    <div class="anno-pill">CHANGE: Explicit paths per audience — replaces "Work With Us"</div>
+    <div class="eyebrow">Who we work with</div>
+    <h2 class="section-h2">Three groups.<br><em>One shared outcome.</em></h2>
+    <p class="section-sub">Whether you're a founder, a fund, or an LP — BVC's AI operating system builds SaaS businesses worth significantly more at exit.</p>
+    <div class="audience-grid">
+      <div class="aud-card">
+        <div class="aud-header"><div class="aud-badge">01</div><div class="aud-title">PE &amp; VC fund partners</div></div>
+        <div class="aud-body">You have SaaS portfolio companies that need EBITDA expansion before exit. BVC embeds the operating system across Revenue, Cost, and Product engines — with engagement as equity co-invest, outcome-linked fees, or hybrid. We make your portfolio worth more at sale.</div>
+        <a class="aud-cta" href="#">Partner with BVC →</a>
+      </div>
+      <div class="aud-card">
+        <div class="aud-header"><div class="aud-badge">02</div><div class="aud-title">Founders considering a sale</div></div>
+        <div class="aud-body">You've built a $5–30M ARR B2B SaaS business and want a buyer who will invest in making it better — not extract and flip. BVC acquires with a clear transformation thesis and preserves management teams who want to run AI-native companies at scale.</div>
+        <a class="aud-cta" href="#">Explore a sale →</a>
+      </div>
+      <div class="aud-card">
+        <div class="aud-header"><div class="aud-badge">03</div><div class="aud-title">LPs &amp; fund investors</div></div>
+        <div class="aud-body">BVC targets B2B SaaS businesses where AI transformation creates the most measurable value. Our operating system is proprietary, repeatable, and proven across five portfolio companies — generating alpha through rapid EBITDA expansion and compounding product defensibility.</div>
+        <a class="aud-cta" href="#">View the fund thesis →</a>
+      </div>
+    </div>
+    <div class="pcta-block">
+      <div>
+        <div class="pcta-eyebrow">For PE &amp; VC fund partners — priority audience</div>
+        <h3 class="pcta-h">Your SaaS portfolio is worth more<br><em>post-transformation.</em></h3>
+        <p class="pcta-sub">BVC deploys the same AI operating system we use on our own acquisitions — across your portfolio companies, with flexible commercial structures and 90-day measurable outcomes.</p>
+      </div>
+      <div class="pcta-btns">
+        <a class="btn-primary" href="#">Talk to BVC →</a>
+        <a class="btn-outline" href="#">View engagement models</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO CAROUSEL -->
+<section class="portfolio-section">
+  <div class="portfolio-inner">
+    <div class="anno-pill">NEW: Portfolio carousel — full company + engines per slide, auto-advances</div>
+    <div class="eyebrow">Portfolio</div>
+    <h2 class="section-h2">Five acquisitions.<br><em>One operating system.</em></h2>
+    <p class="section-sub">Proof the BVC framework is repeatable across sectors, company types, and failure modes.</p>
+    <div class="carousel-wrap">
+      <div class="carousel-track-outer">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="carousel-slide">
+            <div class="slide-left">
+              <div>
+                <div class="slide-sector">Healthcare SaaS · Florida</div>
+                <div class="slide-name">VorroAI</div>
+                <div class="slide-desc">AI workflows that reduce manual clinical work, improve visibility, and enable smarter decision-making through seamless data integration — purpose-built for healthcare operators.</div>
+              </div>
+              <div class="slide-metrics">
+                <div><div class="slide-metric-val">+23pp</div><div class="slide-metric-lbl">NRR lift</div></div>
+                <div><div class="slide-metric-val">38%</div><div class="slide-metric-lbl">COGS reduction</div></div>
+                <div><div class="slide-metric-val">90d</div><div class="slide-metric-lbl">First EBITDA move</div></div>
+              </div>
+            </div>
+            <div class="slide-right">
+              <div class="slide-right-label">BVC engines deployed</div>
+              <div class="slide-engine"><div class="slide-engine-title">Revenue Engine</div><div class="slide-engine-body">AI-assisted GTM, pricing architecture rebuild, expansion playbooks into adjacent clinical workflows.</div></div>
+              <div class="slide-engine"><div class="slide-engine-title">Cost Engine</div><div class="slide-engine-body">AI automation of clinical data processing, offshore delivery model for non-clinical ops, vendor compression.</div></div>
+              <div class="slide-engine"><div class="slide-engine-title">Product Engine</div><div class="slide-engine-body">AI-native workflow rebuild, proprietary clinical data moat, retention loops via outcome reporting.</div></div>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <div class="slide-left">
+              <div>
+                <div class="slide-sector">HR Tech · North Carolina</div>
+                <div class="slide-name">Cadient</div>
+                <div class="slide-desc">AI-powered high-volume hiring platform with SmartSuite™ — predictive candidate assessment and hiring quality at scale for enterprise workforce teams.</div>
+              </div>
+              <div class="slide-metrics">
+                <div><div class="slide-metric-val">+31%</div><div class="slide-metric-lbl">Gross margin</div></div>
+                <div><div class="slide-metric-val">2.4×</div><div class="slide-metric-lbl">ARR growth</div></div>
+                <div><div class="slide-metric-val">112%</div><div class="slide-metric-lbl">NRR achieved</div></div>
+              </div>
+            </div>
+            <div class="slide-right">
+              <div class="slide-right-label">BVC engines deployed</div>
+              <div class="slide-engine"><div class="slide-engine-title">Revenue Engine</div><div class="slide-engine-body">Pricing architecture remodel, GTM engineering for mid-market expansion, new expansion playbooks into adjacent HR modules.</div></div>
+              <div class="slide-engine"><div class="slide-engine-title">Cost Engine</div><div class="slide-engine-body">AI automation of candidate screening pipeline, offshore QA and ops, infrastructure vendor renegotiation.</div></div>
+              <div class="slide-engine"><div class="slide-engine-title">Product Engine</div><div class="slide-engine-body">SmartSuite™ rebuilt as AI-native predictive layer, retention loops embedded into hiring workflow outcomes.</div></div>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <div class="slide-left">
+              <div>
+                <div class="slide-sector">eCommerce SaaS · Florida</div>
+                <div class="slide-name">CV3</div>
+                <div class="slide-desc">AI eCommerce platform driving performance-based growth through data intelligence, automation, and continuous optimisation for online retailers of all sizes.</div>
+              </div>
+              <div class="slide-metrics">
+                <div><div class="slide-metric-val">2.1×</div><div class="slide-metric-lbl">ARR growth</div></div>
+                <div><div class="slide-metric-val">+28%</div><div class="slide-metric-lbl">EBITDA margin</div></div>
+                <div><div class="slide-metric-val">108%</div><div class="slide-metric-lbl">NRR</div></div>
+              </div>
+            </div>
+            <div class="slide-right">
+              <div class="slide-right-label">BVC engines deployed</div>
+              <div class="slide-engine"><div class="slide-engine-title">Revenue Engine</div><div class="slide-engine-body">Performance-based pricing model rebuilt, AI-led GTM targeting mid-market eCommerce brands, upsell automation.</div></div>
+              <div class="slide-engine"><div class="slide-engine-title">Cost Engine</div><div class="slide-engine-body">AI-automated data pipeline processing, offshore engineering for platform maintenance, AWS cost compression.</div></div>
+              <div class="slide-engine"><div class="slide-engine-title">Product Engine</div><div class="slide-engine-body">AI-native product intelligence layer, proprietary retailer dataset moat, retention loops via performance reporting.</div></div>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <div class="slide-left">
+              <div>
+                <div class="slide-sector">Materials Science SaaS · California</div>
+                <div class="slide-name">Infinita Lab</div>
+                <div class="slide-desc">Accelerates R&amp;D through fast, accredited materials testing and expert insights for engineering teams — transforming weeks of lab time into days.</div>
+              </div>
+              <div class="slide-metrics">
+                <div><div class="slide-metric-val">+28%</div><div class="slide-metric-lbl">EBITDA lift</div></div>
+                <div><div class="slide-metric-val">3.2×</div><div class="slide-metric-lbl">Revenue per FTE</div></div>
+                <div><div class="slide-metric-val">115%</div><div class="slide-metric-lbl">NRR</div></div>
+              </div>
+            </div>
+            <div class="slide-right">
+              <div class="slide-right-label">BVC engines deployed</div>
+              <div class="slide-engine"><div class="slide-engine-title">Revenue Engine</div><div class="slide-engine-body">Pricing restructure to outcome-based model, expansion into adjacent engineering verticals, AI-assisted sales motion.</div></div>
+              <div class="slide-engine"><div class="slide-engine-title">Cost Engine</div><div class="slide-engine-body">AI automation of report generation, offshore delivery for standard testing workflows, lab capacity optimisation.</div></div>
+              <div class="slide-engine"><div class="slide-engine-title">Product Engine</div><div class="slide-engine-body">Proprietary materials dataset moat, AI-native insights layer, retention loops via continuous R&amp;D tracking.</div></div>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <div class="slide-left">
+              <div>
+                <div class="slide-sector">Enterprise AI · Global</div>
+                <div class="slide-name">Agrim AI</div>
+                <div class="slide-desc">Enterprise transformation platform for AI-native operations via AgrimOS — custom AI solutions and automation deployed across global enterprise clients.</div>
+              </div>
+              <div class="slide-metrics">
+                <div><div class="slide-metric-val">+40%</div><div class="slide-metric-lbl">Gross margin</div></div>
+                <div><div class="slide-metric-val">118%</div><div class="slide-metric-lbl">NRR</div></div>
+                <div><div class="slide-metric-val">AI-native</div><div class="slide-metric-lbl">Platform rebuilt</div></div>
+              </div>
+            </div>
+            <div class="slide-right">
+              <div class="slide-right-label">BVC engines deployed</div>
+              <div class="slide-engine"><div class="slide-engine-title">Revenue Engine</div><div class="slide-engine-body">Enterprise GTM rebuild, outcome-linked pricing on AgrimOS deployments, expansion into APAC and EMEA enterprise segments.</div></div>
+              <div class="slide-engine"><div class="slide-engine-title">Cost Engine</div><div class="slide-engine-body">AI-automated implementation workflows, offshore delivery centre for enterprise rollouts, infrastructure consolidation.</div></div>
+              <div class="slide-engine"><div class="slide-engine-title">Product Engine</div><div class="slide-engine-body">AgrimOS rebuilt as modular AI-native platform, proprietary enterprise automation data moat, deep workflow switching costs.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <div class="carousel-dots" id="carouselDots">
+          <button class="dot active" onclick="goToSlide(0)"></button>
+          <button class="dot" onclick="goToSlide(1)"></button>
+          <button class="dot" onclick="goToSlide(2)"></button>
+          <button class="dot" onclick="goToSlide(3)"></button>
+          <button class="dot" onclick="goToSlide(4)"></button>
+        </div>
+        <div class="carousel-btns">
+          <button class="carr-btn" onclick="prevSlide()">←</button>
+          <button class="carr-btn" onclick="nextSlide()">→</button>
+        </div>
+      </div>
+    </div>
+    <div class="outcomes-grid" style="margin-top:48px">
+      <div class="outcome-card"><div class="outcome-val">2×</div><div class="outcome-label">Median equity value increase</div><div class="outcome-sub">Over 18 months across portfolio companies</div></div>
+      <div class="outcome-card"><div class="outcome-val">38%</div><div class="outcome-label">Typical COGS reduction</div><div class="outcome-sub">Within the first 90 days of deployment</div></div>
+      <div class="outcome-card"><div class="outcome-val">110%+</div><div class="outcome-label">NRR target</div><div class="outcome-sub">Achieved or on track across active portfolio</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INSIGHTS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="eyebrow">Insights</div>
+    <h2 class="section-h2">100 essays on<br><em>PE-backed SaaS.</em></h2>
+    <p class="section-sub">One per operating problem — grounded in portfolio evidence from the BVC operating team.</p>
+    <div class="insights-grid">
+      <a class="insight-card" href="#">
+        <div class="insight-cat">GTM &amp; Revenue</div>
+        <div class="insight-title">GTM Is Inefficient, Not Broken</div>
+        <div class="insight-body">54% of sales reps spend less than 40% of their time selling. AI workflow automation reclaims 40% of rep time — enabling 3× leaner GTM teams.</div>
+        <div class="insight-link">Read →</div>
+      </a>
+      <a class="insight-card" href="#">
+        <div class="insight-cat">Pricing &amp; Packaging</div>
+        <div class="insight-title">Pricing Is the Fastest EBITDA Lever</div>
+        <div class="insight-body">A 1% price increase drives 11% EBITDA improvement. Most PE-backed SaaS companies haven't repriced in 2+ years — leaving significant margin on the table.</div>
+        <div class="insight-link">Read →</div>
+      </a>
+      <a class="insight-card" href="#">
+        <div class="insight-cat">Customer Success</div>
+        <div class="insight-title">Reactive Churn Management Is Too Late</div>
+        <div class="insight-body">AI churn models predict churn 90+ days out. Companies intervening at 90 days recover 35–40% of at-risk accounts. At 30 days: only 10–15%.</div>
+        <div class="insight-link">Read →</div>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:36px"><a class="btn-primary" href="#" style="display:inline-block">Browse all 100 insights →</a></div>
+  </div>
+</section>
+
+<!-- SITEMAP -->
+<div class="sitemap-section">
+  <div class="sitemap-inner">
+    <div class="anno-pill" style="margin-bottom:20px">SUGGESTED SITEMAP — new 4-pillar nav structure</div>
+    <div class="sitemap-grid">
+      <div>
+        <div class="sitemap-col-title">Fund</div>
+        <ul class="sitemap-links">
+          <li><a href="#">Investment thesis</a></li>
+          <li><a href="#">Target profile ($5–30M ARR)</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Case studies</a></li>
+          <li><a href="#">For LPs</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="sitemap-col-title">For PE &amp; VC Funds <span class="new-badge">NEW</span></div>
+        <ul class="sitemap-links">
+          <li><a href="#">How it works</a></li>
+          <li><a href="#">Engagement models</a></li>
+          <li><a href="#">90-day outcomes</a></li>
+          <li><a href="#">Talk to BVC</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="sitemap-col-title">For Founders</div>
+        <ul class="sitemap-links">
+          <li><a href="#">What we look for</a></li>
+          <li><a href="#">Post-acquisition approach</a></li>
+          <li><a href="#">Portfolio companies</a></li>
+          <li><a href="#">Start a conversation</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="sitemap-col-title">Operating System</div>
+        <ul class="sitemap-links">
+          <li><a href="#">The BVC framework</a></li>
+          <li><a href="#">Benchmark (L1)</a></li>
+          <li><a href="#">Rebuild engines (L2)</a></li>
+          <li><a href="#">Compound &amp; exit (L3/4)</a></li>
+          <li><a href="#">Insights (100 essays)</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LEGEND -->
+<div style="padding:0 40px">
+  <div class="legend-box">
+    <div class="legend-title">✏ Key changes from current site — for Ambarish's review</div>
+    <div class="legend-grid">
+      <div class="legend-item">Exact BVC brand system — Inter font, #1a1a2e dark, #1e73be accent</div>
+      <div class="legend-item">Text sizes increased — H1 66px, H2 44px, body 17–19px</div>
+      <div class="legend-item">NEW: Founder/operator identity section immediately after hero</div>
+      <div class="legend-item">Hero: fund identity first — "The AI-native SaaS buyout firm."</div>
+      <div class="legend-item">Two explicit front doors from hero — PE/VC funds + founders</div>
+      <div class="legend-item">NEW: Portfolio carousel — full company + all 3 engines per slide</div>
+      <div class="legend-item">Framework layer names now dominant (30px), verbs demoted</div>
+      <div class="legend-item">New "For PE &amp; VC Funds" page in sitemap — dedicated path</div>
+      <div class="legend-item">All valuation language removed — no entry/exit multiples anywhere</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <img src="https://bvcweb.netlify.app/images/bvc-logo-white.png" alt="BVC" style="height:26px;margin-bottom:10px" onerror="this.style.display='none'">
+        <div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:10px">Basis Vectors Capital</div>
+        <div class="footer-brand-desc">The AI-native SaaS buyout firm. We acquire and transform B2B SaaS businesses through a proprietary AI operating system — deployed by ex-founders and operators who've done it themselves.</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Fund</div>
+        <ul class="footer-links"><li><a href="#">Portfolio</a></li><li><a href="#">Case Studies</a></li><li><a href="#">For LPs</a></li></ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Partners</div>
+        <ul class="footer-links"><li><a href="#">For PE &amp; VC Funds</a></li><li><a href="#">For Founders</a></li><li><a href="#">Engagement Models</a></li></ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Platform</div>
+        <ul class="footer-links"><li><a href="#">The BVC Framework</a></li><li><a href="#">Insights</a></li><li><a href="#">About</a></li></ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links"><li><a href="#">Talk to BVC</a></li><li><a href="#">Explore a sale</a></li><li><a href="#">Partner with us</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal">© 2025 Basis Vectors Capital. All rights reserved.</div>
+      <div class="footer-legal">Operators, not consultants.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+let current=0;const total=5;
+const track=document.getElementById('carouselTrack');
+const dots=document.querySelectorAll('.dot');
+function goToSlide(n){current=n;track.style.transform='translateX(-'+(current*100)+'%)';dots.forEach((d,i)=>d.classList.toggle('active',i===current));}
+function nextSlide(){goToSlide((current+1)%total);}
+function prevSlide(){goToSlide((current-1+total)%total);}
+let autoplay=setInterval(nextSlide,6000);
+document.querySelector('.carousel-wrap').addEventListener('mouseenter',()=>clearInterval(autoplay));
+document.querySelector('.carousel-wrap').addEventListener('mouseleave',()=>{autoplay=setInterval(nextSlide,6000);});
+</script>
+</body>
+</html>
